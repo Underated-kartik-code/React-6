@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import List from './List'
 
 const Card = () => {
 
@@ -9,10 +10,6 @@ const Card = () => {
 
     const submitHandler = (e) =>{
         e.preventDefault();    
-
-        console.log(Name)
-        console.log(Email)
-        console.log(Url)
 
         const contactObj = {
             name: Name,
@@ -76,7 +73,13 @@ const Card = () => {
             <button type="submit">Add Contact</button>
         </form>
         
-        
+    {contacts.map(function(elem){
+    return <List 
+        userUrl = {elem.url}
+        userName = {elem.name}
+        userEmail = {elem.email}
+        />
+    })}
 
     </div>
   )
